@@ -7,9 +7,12 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import configuration from './config/configuration';
 import { enviroments } from './config/environments';
-import { RecipeModule } from './recipe/recipe.module';
-import { GroceryListModule } from './grocery-list/grocery-list.module';
+import { UserModule } from './user/user.module';
+import { PlanModule } from './plan/plan.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
+
 import * as Joi from 'joi';
+import { UuidScalar } from './config/graphql/scalars';
 
 @Module({
   imports: [
@@ -27,10 +30,12 @@ import * as Joi from 'joi';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
-      sortSchema: true,
+      sortSchema: false,
+      resolvers: { UUID: UuidScalar },
     }),
-    RecipeModule,
-    GroceryListModule,
+    UserModule,
+    PlanModule,
+    ShoppingListModule,
   ],
   controllers: [AppController],
   providers: [AppService],

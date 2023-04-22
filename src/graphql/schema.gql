@@ -2,47 +2,98 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-input CreateGroceryListInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+type User {
+  id: UUID!
+  name: String!
+  age: Int!
+  weight: Float!
+  activity_level: String!
 }
 
-input CreateRecipeInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+"""A simple UUID parser"""
+scalar UUID
+
+type Plan {
+  id: UUID!
+  userId: String!
+  startDate: DateTime!
+  endDate: DateTime!
 }
 
-type GroceryList {
-  """Example field (placeholder)"""
-  exampleField: Int!
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Recipe {
+  id: UUID!
+  name: String!
+  description: String!
+
+  """Time in minutes"""
+  preparation_time: Int!
 }
 
-type Mutation {
-  createGroceryList(createGroceryListInput: CreateGroceryListInput!): GroceryList!
-  createRecipe(createRecipeInput: CreateRecipeInput!): Recipe!
-  removeGroceryList(id: Int!): GroceryList!
-  removeRecipe(id: Int!): Recipe!
-  updateGroceryList(updateGroceryListInput: UpdateGroceryListInput!): GroceryList!
-  updateRecipe(updateRecipeInput: UpdateRecipeInput!): Recipe!
+type Ingredient {
+  id: UUID!
+  name: String!
+  category: String!
+  unit_of_measure: String!
+}
+
+type ShoppingList {
+  """Example field (placeholder)"""
+  exampleField: Int!
 }
 
 type Query {
-  groceryList(id: Int!): GroceryList!
-  recipe(id: Int!): Recipe!
+  user(id: Int!): User!
+  plan(id: String!): Ingredient!
+  recipe: [Recipe!]!
+  ingredient: [Ingredient!]!
+  shoppingList(id: Int!): ShoppingList!
 }
 
-type Recipe {
+type Mutation {
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: Int!): User!
+  createPlan(createPlanInput: CreatePlanInput!): Plan!
+  updatePlan(updatePlanInput: UpdatePlanInput!): Plan!
+  removePlan(id: Int!): Plan!
+  createShoppingList(createShoppingListInput: CreateShoppingListInput!): ShoppingList!
+  updateShoppingList(updateShoppingListInput: UpdateShoppingListInput!): ShoppingList!
+  removeShoppingList(id: Int!): ShoppingList!
+}
+
+input CreateUserInput {
   """Example field (placeholder)"""
   exampleField: Int!
 }
 
-input UpdateGroceryListInput {
+input UpdateUserInput {
   """Example field (placeholder)"""
   exampleField: Int
   id: Int!
 }
 
-input UpdateRecipeInput {
+input CreatePlanInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdatePlanInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input CreateShoppingListInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateShoppingListInput {
   """Example field (placeholder)"""
   exampleField: Int
   id: Int!
