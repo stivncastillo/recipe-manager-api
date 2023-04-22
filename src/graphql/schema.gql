@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateGroceryListInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input CreateRecipeInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type GroceryList {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Mutation {
+  createGroceryList(createGroceryListInput: CreateGroceryListInput!): GroceryList!
+  createRecipe(createRecipeInput: CreateRecipeInput!): Recipe!
+  removeGroceryList(id: Int!): GroceryList!
+  removeRecipe(id: Int!): Recipe!
+  updateGroceryList(updateGroceryListInput: UpdateGroceryListInput!): GroceryList!
+  updateRecipe(updateRecipeInput: UpdateRecipeInput!): Recipe!
+}
+
+type Query {
+  groceryList(id: Int!): GroceryList!
+  recipe(id: Int!): Recipe!
+}
+
+type Recipe {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateGroceryListInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input UpdateRecipeInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
