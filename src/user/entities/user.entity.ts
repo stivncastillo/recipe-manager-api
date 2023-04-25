@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int, Float } from '@nestjs/graphql';
-import { UuidScalar } from 'src/config/graphql/scalars';
+import { UuidScalar } from 'src/common/scalars';
 
 @ObjectType()
 export class User {

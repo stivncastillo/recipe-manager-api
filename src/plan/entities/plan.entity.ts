@@ -1,11 +1,8 @@
 import { ObjectType, Field, GraphQLISODateTime } from '@nestjs/graphql';
-import { UuidScalar } from 'src/config/graphql/scalars';
+import { BaseEntity } from 'src/common/entities/base.entity';
 
 @ObjectType()
-export class Plan {
-  @Field(() => UuidScalar)
-  id: string;
-
+export class Plan extends BaseEntity {
   @Field(() => String)
   userId: string;
 

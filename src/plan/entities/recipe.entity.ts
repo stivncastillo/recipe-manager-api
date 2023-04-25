@@ -1,11 +1,8 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { UuidScalar } from 'src/config/graphql/scalars';
+import { BaseEntity } from 'src/common/entities/base.entity';
 
 @ObjectType()
-export class Recipe {
-  @Field(() => UuidScalar)
-  id: string;
-
+export class Recipe extends BaseEntity {
   @Field(() => String)
   name: string;
 

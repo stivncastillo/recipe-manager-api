@@ -5,14 +5,14 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import configuration from './config/configuration';
-import { enviroments } from './config/environments';
+import configuration from './common/configs/configuration';
+import { enviroments } from './common/configs/environments';
 import { UserModule } from './user/user.module';
 import { PlanModule } from './plan/plan.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 
 import * as Joi from 'joi';
-import { UuidScalar } from './config/graphql/scalars';
+import { UuidScalar } from './common/scalars';
 
 @Module({
   imports: [

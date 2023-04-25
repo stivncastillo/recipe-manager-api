@@ -14,7 +14,9 @@ type User {
 scalar UUID
 
 type Plan {
-  id: UUID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   userId: String!
   startDate: DateTime!
   endDate: DateTime!
@@ -26,7 +28,9 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Recipe {
-  id: UUID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   name: String!
   description: String!
 
@@ -35,7 +39,9 @@ type Recipe {
 }
 
 type Ingredient {
-  id: UUID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
   name: String!
   category: String!
   unit_of_measure: String!
@@ -48,9 +54,9 @@ type ShoppingList {
 
 type Query {
   user(id: Int!): User!
-  plan(id: String!): Ingredient!
+  plan(id: Int!): Plan!
   recipe: [Recipe!]!
-  ingredient: [Ingredient!]!
+  ingredient(id: String!): Ingredient!
   shoppingList(id: Int!): ShoppingList!
 }
 
